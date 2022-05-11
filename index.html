@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<head>
+    <title>Colorful Scoop</title>
+    <meta content="Colorful Scoopは、楽しくおしゃべりできる会話AIを開発しています！" name="description">
+
+    <!-- Bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <!-- favicon -->
+    <link rel='icon' href='https://colorfulscoop.com/colorfulscoop_icon.png' type='image/x-icon' sizes="16x16" />
+
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- code highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="container pt-0 pb-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="#">
+          <img src="https://colorfulscoop.com/colorfulscoop_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Colorful Scoop
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#convmodel">convmodel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pretrained-model">学習済みモデル</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#software">Software</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#docs">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://colorfulscoop.github.io/lab/">カラフルスコップ研究室</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <section>
+      <div class="header curved" style="min-height: 10em; padding: 1em 0 0 0; text-align: center;">
+        <!--
+        <div class="title" style="font-size: xx-large; margin-top: 1em;">Colorful Scoop</div>
+        <p class="lead">Chatbots change the world!😉</p>
+        -->
+        <p class="lead text-white" style="margin-top: 2em;">✨チャットボットであなたの世界をカラフルに✨</p>
+        <h1 class="display-1 text-white">Colorful Scoop</h1>
+        <p class="lead" style="margin-top: 3em;">Colorful Scoopは、<br/>楽しくおしゃべりできる会話AIを<br/>開発しています！</p>
+      </div>
+    </section>
+
+    <section id="convmodel" class="bg-white">
+      <div class="container pt-5 pb-5">
+        <div class="text-center">
+          <h2>convmodel</h2>
+          <p>会話モデル学習・応答生成フレームワーク</p>
+          <p>
+            <a href="https://github.com/colorfulscoop/convmodel" class="btn btn-primary btn-sm">GitHub</a>
+            <a href="https://pypi.org/project/convmodel/" class="btn btn-primary btn-sm">PyPI</a>
+            <a href="https://colorfulscoop.github.io/convmodel-docs/" class="btn btn-primary btn-sm">Document</a>
+          </p>
+        </div>
+        <div class="alert alert-success" role="alert">
+          v0.3.0の公開に合わせて convmodel 学習・推論方法の<a class="alert-link" href="https://colorfulscoop.github.io/lab/blog/20211002-convmodel/">日本語ブログ</a>を公開しています 🎉
+        </div>
+        <div class="row">
+          <p>
+            <mark>convmodel</mark>は、
+            GPT-2といった
+            <a href="https://github.com/huggingface/transformers">transformers</a>
+            の
+            <a href="https://huggingface.co/transformers/model_summary.html#decoders-or-autoregressive-models">デコーダモデル</a>
+            のファインチューニングによる会話モデルの学習・推論フレームワークです。
+          </p>
+          <p>
+            一般的な会話システムでは事前に返答を用意する必要がありますが、会話の流れは様々であるため用意は予想以上に難しいものです。<br />
+            convmodelでは、あらかじめ用意した返答を返すのではなく、会話の流れに応じてその場で適切な返答を生成するモデルを採用しています。
+          </p>
+          <p>
+            シンプルなインターフェースでマルチターンの会話を実現します。
+          </p>
+          <pre><code>>>> from convmodel import ConversationModel
+>>> model = ConversationModel.from_pretrained("model")
+>>> model.generate(context=["こんにちは", "こんにちは！お元気ですか？"], do_sample=True, top_p=0.9, top_k=50)
+ConversationModelOutput(responses=['はい、元気です。'], context=['こんにちは', 'こんにちは！お元気ですか？'])</code></pre>
+
+          <p>
+            日本語会話を学習した convmodel は<a href="#app">ページトップ</a>からお試しできます。
+          </p>
+          <p>
+            いい会話ができたら「会話をSNSで共有」を押して Twitter で共有しましょう！
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 京都行きたいー<br>🤖 京都いいよねー<br>🙂 うん。コロナがね<br>🤖 そうなのよね、、コロナだから京都は行きにくい(TT)<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415663714521093?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 深夜だけどお腹すいた...<br>🤖 (「・ω・)「ホイお供にな?<br>🙂 食べたら太りそう<br>🤖 まっっじ?<br>🙂 おそらくそうだよ<br>🤖 (。・н・。)パクッ<br>🙂 太るよ！！！！<br>🤖 いやだぁー<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415746967281669?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 お昼寝しすぎてあまり寝れなかった…<br>🤖 お昼寝とか体壊れちゃうよ。<br>🙂 そうかも。ちゃんと夜寝た方がいいよね<br>🤖 なんか体調を崩さない様に気を付けないとだよね...<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a>より</p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415810091581442?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pretrained-model" class="bg-light">
+      <div class="container pt-5 pb-5">
+        <div class="text-center">
+          <h2>学習済みモデル</h2>
+          <p>自然言語処理向け事前学習モデル</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">gpt2-small-ja</h5>
+                <p class="card-text">
+                  GPT-2 の small サイズを日本語 Wikipedia データセットで学習したモデルです。
+                  トークナイザには SentencePiece を利用しています。
+                </p>
+                <p class="card-text">
+                  <b>用途:</b> 文の生成
+                </p>
+                <a href="https://huggingface.co/colorfulscoop/gpt2-small-ja" class="btn btn-primary btn-sm">🤗Model Hub</a>
+                <a href="https://github.com/colorfulscoop/gpt-ja" class="btn btn-primary btn-sm">学習コード</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">sbert-base-ja</h5>
+                <p class="card-text">
+                  bert-base-ja を日本語の Sentence BERT 用にファインチューニングしたモデルです。
+                </p>
+                <p class="card-text">
+                  <b>用途:</b> 文の類似度計算、意味が似た文を検索
+                </p>
+                <a href="https://huggingface.co/colorfulscoop/sbert-base-ja" class="btn btn-primary btn-sm">🤗Model Hub</a>
+                <a href="https://github.com/colorfulscoop/sbert-ja" class="btn btn-primary btn-sm">学習コード</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">bert-base-ja</h5>
+                <p class="card-text">
+                  BERT の base サイズのモデルを日本語 Wikipedia データセットで学習したモデルです。
+                  トークナイザには SentencePiece を利用しています。
+                </p>
+                <p class="card-text">
+                  <b>用途:</b> 単語の穴埋め、ファインチューニング用の学習済みモデルとして利用
+                </p>
+                <a href="https://huggingface.co/colorfulscoop/bert-base-ja" class="btn btn-primary btn-sm">🤗Model Hub</a>
+                <a href="https://github.com/colorfulscoop/bert-ja" class="btn btn-primary btn-sm">学習コード</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="software" class="bg-white">
+      <div class="container pt-5 pb-5">
+        <div class="text-center">
+          <h2>Software</h2>
+          <p>会話AI開発をサポートするソフトウェア</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">convf</h5>
+                <p class="card-text">
+                  convf は、会話データの前処理ライブラリです。
+                </p>
+                <p class="card-text">
+                  一連のフィルターと変換を YAML フォーマットで定義することで、読みやすく再現性に優れた前処理を提供します。
+                  フィルターや変換は拡張可能であるため、必要に応じて自前のフィルターや変換を実装して追加することができます。
+                </p>
+                <a href="https://github.com/colorfulscoop/convf" class="btn btn-primary btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">msgflow</h5>
+                <p class="card-text">
+                  msgFlow はPython製のシンプルなチャットボットフレームワークです。
+                </p>
+                <p class="card-text">
+                  決められたインターフェースを実装することでコマンドライン上で動く物から Slack 等のサービス上で動くものまでを一つのチャットボット実装で作成可能です。
+                </p>
+                <a href="https://github.com/colorfulscoop/msgflow" class="btn btn-primary btn-sm">GitHub</a>
+                <a href="https://pypi.org/project/msgflow/" class="btn btn-primary btn-sm">PyPI</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="mb-3" src="https://colorfulscoop.com/colorfulscoop_icon.png" alt="" width="30" height="30">
+            <p class="d-block">&copy; 2021, Colorful Scoop</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Pretrained Model</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="https://huggingface.co/colorfulscoop/gpt2-small-ja">gpt2-small-ja</a></li>
+              <li><a class="text-muted" href="https://huggingface.co/colorfulscoop/sbert-base-ja">sbert-base-ja</a></li>
+              <li><a class="text-muted" href="https://huggingface.co/colorfulscoop/bert-base-ja">bert-base-ja</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Software</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="https://github.com/colorfulscoop/convmodel">convmodel</a></li>
+              <li><a class="text-muted" href="https://github.com/colorfulscoop/convf">convf</a></li>
+              <li><a class="text-muted" href="https://github.com/colorfulscoop/msgflow">msgflow</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Link</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="https://github.com/colorfulscoop">GitHub</a></li>
+              <li><a class="text-muted" href="https://twitter.com/colorfulscoop">Twitter</a></li>
+              <li><a class="text-muted" href="https://colorfulscoop.github.io/lab/">カラフルスコップ研究室</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- enable Twitter widget -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>

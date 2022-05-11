@@ -1,0 +1,158 @@
+/* Font configuration
+ *
+ * "M PLUS 1p" is licensed under [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+ * by https://fonts.google.com/specimen/M+PLUS+1p?subset=japanese&selection.family=M+PLUS+1p
+ *
+*/
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+.header, .navbar, footer, h1, h2, h3, h4, h5 {
+    font-family: 'M PLUS 1p', sans-serif;
+    color: rgb(78, 44, 1);
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+      height: -webkit-fill-available;
+    }
+  }
+
+/* ChatBalloon */
+.chat-balloon {
+    /* margin: 0.8em 0; */
+}
+.chat-balloon-left {
+    position: relative;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    min-width: 120px;
+    max-width: 100%;
+    background: #d9de84;
+    border-radius: 5px;
+}
+.chat-balloon-left-img {
+    width: 2em;
+    height: 2em;
+    margin: 0.5em 1em 0.5em 0
+}
+.chat-balloon-right-icon {
+    font-size: 2em;
+    margin: 0.5em 0em 0.5em 0.5em;
+}
+.chat-balloon-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-right: 15px solid #d9de84;
+}
+.chat-balloon-right {
+    position: relative;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    min-width: 120px;
+    max-width: 100%;
+    background: #b2d6d4;
+    border-radius: 5px;
+  }
+.chat-balloon-right:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-left: 15px solid #b2d6d4;
+}
+
+.chat-timeline {
+    padding: 0 0.5em 3em 0.5em;
+    overflow: auto;
+}
+
+/* Button */
+.btn-primary, .btn-primary:focus {
+    background-color: #9ac29f;
+    border-color: #9ac29f;
+}
+.btn-primary:not(:disabled):hover {
+    background-color: #85ae8b;
+    border-color: #85ae8b;
+}
+.btn-primary:active {
+    /* important is required to work with Bootstrap */
+    background-color: #85ae8b !important;
+    border-color: #85ae8b !important;
+}
+.btn-primary:disabled {
+    background-color: #aed6b3;
+    border-color: #aed6b3;
+}
+
+/*
+ * Button for sharing conversation in Twitter
+ */
+.btn-outline-primary, .btn-outline-primary:hover {
+    color: #85ae8b;
+    border-color: #85ae8b;
+    background-color: white;
+}
+/* when clicked, the status is changed to active. */
+.active.btn-outline-primary:hover {
+    color: white;
+}
+.btn-outline-primary:active, .btn-outline-primary.active {
+    /* important is required to work with Bootstrap */
+    background-color: #85ae8b !important;
+    border-color: #85ae8b !important;
+    color: white;
+}
+.btn-outline-primary:disabled {
+    background-color: #aed6b3;
+    border-color: #aed6b3;
+    color: white;
+}
+
+/* Body */
+h2 {
+    padding-bottom: 0.5em;
+}
+
+/* footer */
+footer {
+    padding: 1em 0 1em 0em;
+    /*
+    background-color: rgb(255, 215, 75);
+    */
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .copyright {
+    padding: 1em 0 1em 0em;
+    text-align: center;
+}
+
+footer .copyright-others {
+    padding: 1em 0 1em 0em;
+    text-align: center;
+}
+
+/* anker */
+a {
+}
+
+a:hover {
+  color: rgb(78, 44, 1);
+}
+
+.curved {
+    position: relative;
+    background: #B5D4D9;
+    height: 40vh;
+    border-bottom-left-radius: 50% 26%;
+    border-bottom-right-radius: 50% 26%;
+}
