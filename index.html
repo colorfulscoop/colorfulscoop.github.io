@@ -69,32 +69,39 @@
       </div>
     </section>
 
-    <section id="convmodel" class="bg-white">
+    <section id=""convmodel" class="bg-white">
       <div class="container pt-5 pb-5">
-        <div class="text-center">
+        <div class="text-center pb-5">
           <h2>convmodel</h2>
           <p class="lead">会話モデル学習・応答生成フレームワーク</p>
           <p>
             <a href="https://github.com/colorfulscoop/convmodel" class="btn btn-primary btn-sm">GitHub</a>
             <a href="https://pypi.org/project/convmodel/" class="btn btn-primary btn-sm">PyPI</a>
             <a href="https://colorfulscoop.github.io/convmodel-docs/" class="btn btn-primary btn-sm">Document</a>
+            <a href="https://colorfulscoop.github.io/lab/blog/20211002-convmodel/" class="btn btn-primary btn-sm">ブログ記事</a>
           </p>
-        </div>
-        <div class="alert alert-success" role="alert">
-          v0.3.0の公開に合わせて convmodel 学習・推論方法の<a class="alert-link" href="https://colorfulscoop.github.io/lab/blog/20211002-convmodel/">日本語ブログ</a>を公開しています 🎉
         </div>
         <div class="row">
-          <p>
-            <mark>convmodel</mark>は
-            <a href="https://github.com/huggingface/transformers">Transformers</a>
-            の
-            <a href="https://huggingface.co/transformers/model_summary.html#decoders-or-autoregressive-models">デコーダモデル</a>
-            による会話モデルの学習・応答生成フレームワークです。
-          </p>
-          <p>
-            シンプルなインターフェースでマルチターンの会話を実現します。
-          </p>
-          <pre><code>>>> from convmodel import ConversationModel
+          <div class="col-md-6">
+            <p>
+              Colorful Scoop では、会話モデルの学習・応答生成フレームワークの <mark>convmodel</mark> を開発しています。
+            </p>
+            <p>
+              <h4 class="text-center">特徴</h4>
+              <ul>
+                <li>
+                  <a href="https://github.com/huggingface/transformers">Transformers</a>
+                  の
+                  <a href="https://huggingface.co/transformers/model_summary.html#decoders-or-autoregressive-models">デコーダモデル</a>
+                  を使ったマルチターンの会話をモデリング
+                </li>
+                <li>シンプルなインターフェースでの応答生成</li>
+              </ul>
+            </p>
+            
+          </div>
+          <div class="col-md-6">
+            <pre><code>>>> from convmodel import ConversationModel
 >>> model = ConversationModel.from_pretrained("model")
 >>> model.generate(
 ...     context=["こんにちは", "こんにちは！お元気ですか？"],
@@ -104,21 +111,19 @@
 ... )
 ...
 ConversationModelOutput(responses=['はい、元気です。'], context=['こんにちは', 'こんにちは！お元気ですか？'])</code></pre>
-
-          <p>
-            日本語会話を学習した convmodel は<a href="https://colorfulscoop.com/">トップページ</a>からお試しできます。
-          </p>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 京都行きたいー<br>🤖 京都いいよねー<br>🙂 うん。コロナがね<br>🤖 そうなのよね、、コロナだから京都は行きにくい(TT)<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415663714521093?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
-          </div>
-          <div class="col-md-4">
-            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 深夜だけどお腹すいた...<br>🤖 (「・ω・)「ホイお供にな?<br>🙂 食べたら太りそう<br>🤖 まっっじ?<br>🙂 おそらくそうだよ<br>🤖 (。・н・。)パクッ<br>🙂 太るよ！！！！<br>🤖 いやだぁー<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415746967281669?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
-          </div>
-          <div class="col-md-4">
-            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 お昼寝しすぎてあまり寝れなかった…<br>🤖 お昼寝とか体壊れちゃうよ。<br>🙂 そうかも。ちゃんと夜寝た方がいいよね<br>🤖 なんか体調を崩さない様に気を付けないとだよね...<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a>より</p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415810091581442?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
-          </div>
+      </div>
+      <div class="row">
+        <h4 class="text-center">会話例</h4>
+        <p class="text-center">日本語会話を学習した convmodel は<a href="https://colorfulscoop.com/">トップページ</a>からお試しできます。</p>
+        <div class="col-md-4">
+          <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 京都行きたいー<br>🤖 京都いいよねー<br>🙂 うん。コロナがね<br>🤖 そうなのよね、、コロナだから京都は行きにくい(TT)<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415663714521093?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 深夜だけどお腹すいた...<br>🤖 (「・ω・)「ホイお供にな?<br>🙂 食べたら太りそう<br>🤖 まっっじ?<br>🙂 おそらくそうだよ<br>🤖 (。・н・。)パクッ<br>🙂 太るよ！！！！<br>🤖 いやだぁー<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> via <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a></p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415746967281669?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">🙂 お昼寝しすぎてあまり寝れなかった…<br>🤖 お昼寝とか体壊れちゃうよ。<br>🙂 そうかも。ちゃんと夜寝た方がいいよね<br>🤖 なんか体調を崩さない様に気を付けないとだよね...<br> <a href="https://t.co/nhmaJAk4pP">https://t.co/nhmaJAk4pP</a> <a href="https://twitter.com/colorfulscoop?ref_src=twsrc%5Etfw">@colorfulscoop</a>より</p>&mdash; colorfulscoop (@colorfulscoop) <a href="https://twitter.com/colorfulscoop/status/1360415810091581442?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
         </div>
       </div>
     </section>
