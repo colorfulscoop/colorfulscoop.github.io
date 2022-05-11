@@ -152,7 +152,7 @@ a:hover {
 .curved {
     position: relative;
     background: #B5D4D9;
-    height: 40vh;
+    height: 45vh;
     border-bottom-left-radius: 50% 26%;
     border-bottom-right-radius: 50% 26%;
 }
