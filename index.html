@@ -44,10 +44,10 @@
               <a class="nav-link" href="#pretrained-model">学習済みモデル</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#software">Software</a>
+              <a class="nav-link" href="#software">ソフトウェア</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#docs">Docs</a>
+              <a class="nav-link" href="#docs">ドキュメント</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://colorfulscoop.github.io/lab/">カラフルスコップ研究室</a>
@@ -73,7 +73,7 @@
       <div class="container pt-5 pb-5">
         <div class="text-center">
           <h2>convmodel</h2>
-          <p>会話モデル学習・応答生成フレームワーク</p>
+          <p class="lead">会話モデル学習・応答生成フレームワーク</p>
           <p>
             <a href="https://github.com/colorfulscoop/convmodel" class="btn btn-primary btn-sm">GitHub</a>
             <a href="https://pypi.org/project/convmodel/" class="btn btn-primary btn-sm">PyPI</a>
@@ -85,30 +85,28 @@
         </div>
         <div class="row">
           <p>
-            <mark>convmodel</mark>は、
-            GPT-2といった
-            <a href="https://github.com/huggingface/transformers">transformers</a>
+            <mark>convmodel</mark>は
+            <a href="https://github.com/huggingface/transformers">Transformers</a>
             の
             <a href="https://huggingface.co/transformers/model_summary.html#decoders-or-autoregressive-models">デコーダモデル</a>
-            のファインチューニングによる会話モデルの学習・推論フレームワークです。
-          </p>
-          <p>
-            一般的な会話システムでは事前に返答を用意する必要がありますが、会話の流れは様々であるため用意は予想以上に難しいものです。<br />
-            convmodelでは、あらかじめ用意した返答を返すのではなく、会話の流れに応じてその場で適切な返答を生成するモデルを採用しています。
+            による会話モデルの学習・応答生成フレームワークです。
           </p>
           <p>
             シンプルなインターフェースでマルチターンの会話を実現します。
           </p>
           <pre><code>>>> from convmodel import ConversationModel
 >>> model = ConversationModel.from_pretrained("model")
->>> model.generate(context=["こんにちは", "こんにちは！お元気ですか？"], do_sample=True, top_p=0.9, top_k=50)
+>>> model.generate(
+...     context=["こんにちは", "こんにちは！お元気ですか？"],
+...     do_sample=True,
+...     top_p=0.9,
+...     top_k=50
+... )
+...
 ConversationModelOutput(responses=['はい、元気です。'], context=['こんにちは', 'こんにちは！お元気ですか？'])</code></pre>
 
           <p>
-            日本語会話を学習した convmodel は<a href="#app">ページトップ</a>からお試しできます。
-          </p>
-          <p>
-            いい会話ができたら「会話をSNSで共有」を押して Twitter で共有しましょう！
+            日本語会話を学習した convmodel は<a href="https://colorfulscoop.com/">トップページ</a>からお試しできます。
           </p>
         </div>
         <div class="row">
@@ -129,7 +127,7 @@ ConversationModelOutput(responses=['はい、元気です。'], context=['こん
       <div class="container pt-5 pb-5">
         <div class="text-center">
           <h2>学習済みモデル</h2>
-          <p>自然言語処理向け事前学習モデル</p>
+          <p class="lead">自然言語処理向け事前学習モデル</p>
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
@@ -186,8 +184,8 @@ ConversationModelOutput(responses=['はい、元気です。'], context=['こん
     <section id="software" class="bg-white">
       <div class="container pt-5 pb-5">
         <div class="text-center">
-          <h2>Software</h2>
-          <p>会話AI開発をサポートするソフトウェア</p>
+          <h2>ソフトウェア</h2>
+          <p class="lead">会話AI開発をサポートするソフトウェア</p>
         </div>
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
@@ -223,6 +221,29 @@ ConversationModelOutput(responses=['はい、元気です。'], context=['こん
         </div>
       </div>
     </section>
+
+    <section id="docs" class="bg-light">
+      <div class="container pt-5 pb-5">
+        <div class="text-center">
+          <h2>ドキュメント</h2>
+          <p class="lead">自然言語処理に関するドキュメント</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">NLPクックブック</h5>
+                <p class="card-text">
+                  NLPクックブックでは、自然言語処理で使う手法をすぐに調べて使うことができるようにレシピの形でまとめています。
+                </p>
+                <a href="https://colorfulscoop.github.io/nlp_cookbook/" class="btn btn-primary btn-sm">NLPクックブック</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <footer>
       <div class="container pt-5">
